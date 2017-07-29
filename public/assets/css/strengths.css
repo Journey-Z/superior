@@ -1,0 +1,136 @@
+/*banner*/
+.strengths-banner{
+	position: relative;
+	min-width: 1240px;
+}
+.strengths-banner img{
+	display: block;
+	width: 100%;
+}
+.strengths-banner .detail{
+	position: absolute;
+	width: 1240px;
+	padding:0 20px;
+	top:35%;
+	left:50%;
+	margin-left:-620px;
+	text-align: center;
+}
+.strengths-banner .detail h1{
+	font-size:44px;
+	color:#fff;
+    letter-spacing: 16px;
+    padding-bottom:15px;
+
+}
+.strengths-banner .detail p{
+	color:#fff;
+	font-size:22px;
+}
+
+/* products-list */
+.products-list{
+	width: 1240px;
+	padding:0 20px;
+	margin:50px auto 0;
+}
+.products-list .img{
+	cursor:pointer;
+	position: relative;
+	float:left;
+	width: 240px;
+	height: 170px;
+}
+.products-list .img strong{
+	position: absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	background: rgba(0,0,0,0.5);
+	line-height: 170px;
+	text-align: center;
+	color:#fff;
+	font-size:20px;
+	transition:.3s;
+	transform:scale(0);
+	-webkit-transform:scale(0);
+	opacity: 0;
+}
+.products-list .img:hover strong{
+	transform:scale(1);
+	-webkit-transform:scale(1);
+	opacity: 1;
+}
+
+.ability{
+	width: 1240px;
+	padding:0 20px;
+	margin:90px auto;
+}
+
+.ability-list .detail{
+	float:left;
+	text-align: center;
+	width: 25%;
+	padding:0 30px;
+	margin-top:30px;
+}
+.ability-list .detail img{
+	display: block;
+	margin:auto;
+	width: 40px;
+}
+.ability-list .detail strong{
+	display: block;
+	font-size:24px;
+	margin:15px 0 25px 0;
+}
+.ability-list .detail:last-child{
+	float:none;
+	margin:40px auto 0;
+	width: 100%;
+}
+
+.strengths-think{
+	min-width: 1240px;
+	height: 630px;
+	padding-top:80px;
+	text-align: center;
+	background: url(../../assets/images/strengths-bg.png) no-repeat center center;
+}
+.strengths-think h1{
+	color:#fff;
+	font-size:30px;
+}
+.strengths-think .think-list{
+	width: 1240px;
+	padding:80px 20px 60px;
+	margin:auto;
+	position: relative;
+}
+.strengths-think .detail{
+	float:left;
+	width: 260px;
+	height: 260px;
+	border:10px solid #9b9b9b;
+	border-radius: 100%;
+	color:#f3f3f3;
+	font-size:26px;
+	padding-top:80px;
+}
+.strengths-think .detail:nth-child(2){
+	position: absolute;
+	top:80px;
+	left:50%;
+	margin-left:-130px;
+	padding-top:65px;
+}
+.strengths-think .detail:last-child{
+	float:right;
+}
+.strengths-think p{
+	color:#fff;
+	width: 1000px;
+	margin:auto;
+}

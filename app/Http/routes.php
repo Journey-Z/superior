@@ -11,9 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['prefix' => ''], function () {
+    Route::get('', function () {
+        return view('website.index');
+    });
+    Route::get('/about',['as' => 'about',function () {
+        return view('website.about');
+    }]);
+    Route::get('/strengths',['as' => 'about',function () {
+        return view('website.strengths');
+    }]);
 });
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function () {
         return view('admin.index');

@@ -1,0 +1,94 @@
+/*banner*/
+.about-banner{
+	min-width: 1240px;
+}
+.about-banner img{
+	display: block;
+	width: 100%;
+}
+
+/*content-detail*/
+.about-content{
+	width: 1240px;
+	padding:0 20px;
+	margin:auto;
+}
+.about-content img{
+	width: 800px;
+}
+.about-content .detail{
+	position: relative;
+	margin-top:80px;
+}
+.about-content .detail div{
+	position: absolute;
+	width: 500px;
+	height: 300px;
+	top:50%;
+	margin-top:-150px;
+	background: rgba(255, 255, 255, 0.5)
+}
+.about-content .detail h1{
+	font-size: 30px;
+	font-weight: bold;
+	margin:30px 0;
+}
+.about-content .detail strong{
+	display: block;
+	font-size:16px;
+	font-weight: bold;
+	margin-bottom:20px;
+}
+.about-content .detail:first-child div{
+	left:0;
+	padding:0 20px 0 0;
+}
+.about-content .detail:last-child div{
+	right: 0;
+	text-align: right;
+	padding:0 0 0 20px;
+}
+
+/*about mitioc*/
+.about-mitioc{
+	background: #f5f5f5;
+	margin-top:80px;
+	text-align: center;
+	padding:60px 0;
+}
+.about-mitioc-logo{
+	margin-bottom:50px;
+}
+.about-mitioc ul{
+	display: block;
+	width: 1240px;
+	padding:0 20px;
+	margin:0 auto 20px;
+}
+.about-mitioc li{
+	float:left;
+	width: 220px;
+	margin-left:25px;
+}
+.about-mitioc li:first-child{
+	margin-left:0;
+}
+.about-mitioc li img{
+	display: block;
+	width: 100%;
+}
+.about-mitioc p{
+	font-size:22px;
+	color:#c0a264;
+	padding-top:15px;
+}
+.about-mitioc span{
+	font-size:22px;
+	color:#1053a1;
+}
+.about-mitioc p.en{
+    letter-spacing: 18px;
+}
+.about-mitioc p.ch span{
+	margin-right:25px;
+}
