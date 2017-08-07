@@ -174,8 +174,5 @@
 		<div class="unity-img">
 	    	<img src="{{asset('assets/images/process-img.png')}}" />
 		</div>
-		
 	</div>
-
-
 @endsection

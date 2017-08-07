@@ -1,8 +1,8 @@
 <footer>
 	<div class="footer-main clearfix">
-		<div class="email left">邮件：mit@google.com</div>
-		<div class="tel left">传真：0755-8888 8888</div>
-		<div class="add left">地址：深圳市南山区西丽大学城创业园四期108号</div>
+		<p class="email">邮件：mit@google.com</p>
+		<p class="tel">传真：0755-8888 8888</p>
+		<p class="add">地址：深圳市南山区西丽大学城创业园四期108号</p>
 	</div>
 	<div class="footer-copyright clearfix">
 		<div>

@@ -12,6 +12,9 @@ html,body,div,ul,li,ul,p,span,a,strong,h1,h2,h3,h4,h5,i,img{
 	text-decoration: none;
 	color:#444;
 }
+html,body{
+	min-width: 1240px;
+}
 .left{
 	float:left;
 }
@@ -87,6 +90,11 @@ footer{
 	padding:0 20px;
 	margin:auto;
 	line-height: 150px;
+	text-align: center;
+}
+.footer-main p{
+	display: inline-block;
+	margin:0 20px;
 }
 .footer-copyright{
 	min-width: 1240px;

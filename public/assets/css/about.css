@@ -92,3 +92,103 @@
 .about-mitioc p.ch span{
 	margin-right:25px;
 }
+
+/*视频*/
+.about-factory{
+	background: url(../images/factory-bg.png) no-repeat top center;	
+	height: 826px;
+}
+.about-factory h3{
+	width: 1240px;
+	padding:0 20px;
+	margin:auto;
+}
+.about-factory h3 span{
+	display: block;
+	height: 100px;
+	background: #fff;
+	width: 360px;
+	text-align: center;
+	line-height: 100px;
+	font-size:36px;
+	font-weight: bold;
+}
+.factory-video-list{
+	width: 1240px;
+	padding:250px 20px 0;
+	margin:auto;
+}
+.about-factory .video-detail{
+	width: 232px;
+	float:left;
+	padding:10px;
+	background: #fff;
+	margin-right:10px;
+	position: relative;
+}
+.about-factory .video-detail a{
+	position: absolute;
+	width: 66px;
+	height: 66px;
+	left:50%;
+	top:45px;
+	margin-left:-33px;
+}
+.about-factory .video-detail strong{
+	display: block;
+	font-size:22px;
+	padding:15px 0;
+}
+.about-factory .video-detail p{
+	display: block;
+	padding-bottom:10px;
+	height: 95px;
+}
+.about-factory .video-detail:last-child{
+	float:right;
+	margin:0;
+}
+.show-video{
+	display: none;
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.8);
+	z-index: 999;
+}
+.show-video .video-play-detail{
+	position: absolute;
+	display: none;
+	width: 800px;
+	height: 450px;
+	left:50%;
+	top:50%;
+	margin: -225px 0 0 -400px ;
+}
+.show-video .video-play-detail video{
+	width: 100%;
+}
+
+/* 我们的视频 */
+.about-my-video{
+	width: 889px;
+	margin:50px auto 0;
+}
+.about-my-video video{
+	width: 100%;
+}
+.about-my-video .video-detail{
+	margin-top:30px;
+	position: relative;
+}
+.about-my-video #video-btn{
+	position: absolute;
+	bottom:40px;
+	left: 0;
+	width: 100%;
+	height: 465px;
+	opacity: 0.5;
+	z-index: 99;
+}

@@ -22,6 +22,15 @@ Route::group(['prefix' => ''], function () {
     Route::get('/strengths',['as' => 'about',function () {
         return view('website.strengths');
     }]);
+    Route::get('/service-area',['as' => 'about',function () {
+        return view('website.service-area');
+    }]);
+    Route::get('/customer',['as' => 'about',function () {
+        return view('website.customer');
+    }]);
+    Route::get('/customer-detail',['as' => 'about',function () {
+        return view('website.customer-detail');
+    }]);
 });
 
 Route::group(['prefix' => 'admin'], function () {

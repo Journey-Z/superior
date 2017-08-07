@@ -1,5 +1,5 @@
 /* Slider */
-.slick-slider { position: relative; display: block; min-width:1240px;}
+.slick-slider { position: relative; display: block; min-width:1200px; overflow: hidden; }
 .slick-list { position: relative; overflow: hidden; display: block; margin: 0; padding: 0; }
 .slick-list:focus { outline: none; }
 .slick-list.dragging { cursor: pointer; cursor: hand; }
@@ -44,7 +44,7 @@
 	width: 1240px;
 	left:50%;
 	top:20%;
-	margin-left:-600px;
+	margin-left:-620px;
 	position: absolute;
 	padding:0 20px;
 
@@ -70,15 +70,22 @@
 	margin: auto;
 	padding:60px 20px 0;
 	text-align: center;
+	opacity: 0;
+	transition:.7s;
 
 }
 .advantage .detail{
 	padding-top:30px;
 }
 .advantage .list{
+	position: relative;
 	float:left;
 	width: 190px;
 	margin-left:52px;
+	transform:scale(0);
+	-webkit-transform:scale(0);
+	transition:0.8s;
+
 }
 .advantage .list img{
 	display: block;
@@ -94,8 +101,13 @@
 .advantage .list:first-child{
 	margin:0;
 }
-
-
+.advantage.show{
+	opacity: 1;
+}
+.advantage.show .list{
+	transform:scale(1);
+	-webkit-transform:scale(1);
+}
 
 /* 广告 */ 
 .advertised{
@@ -103,6 +115,10 @@
 	min-width: 1200px;
 	margin-top:20px;
 	text-align: center;
+	opacity: 0;
+	top:-20px;
+	transition:.6s;
+	overflow: hidden;
 }
 .advertised img{
 	width: 100%;
@@ -111,10 +127,10 @@
 .advertised .detail{
 	position: absolute;
 	left:50%;
-	top:50%;
-	width: 1240px;
-	padding:0 20px;
+	top:-100%;
+	width: 1200px;
 	margin-left:-600px;
+	transition:0.8s;
 }
 .advertised h3{
 	letter-spacing: 14px;
@@ -126,15 +142,24 @@
 	margin-top:10px;
 	font-size: 20px;
 }
-
-
+.advertised.show{
+	opacity: 1;
+	top:0;
+}
+.advertised.show .detail{
+	top:50%;
+}
 /* 发展历程 */
 .course{
+	position: relative;
 	width: 1200px;
 	height: 540px;
 	padding-top:80px;
 	margin:60px auto;
 	text-align: center;
+	opacity: 0;
+	top:-80px;
+	transition:0.5s;
 	background: url(../images/course-bg.png) no-repeat;
 }
 .course img{
@@ -166,6 +191,10 @@
     line-height: 28px;
     margin-top: 30px;
 }
+.course.show{
+	top:0;
+	opacity: 1;
+}
 
 /* 产品 */
 .index-products{
@@ -174,9 +203,15 @@
 	padding:0 20px;
 }
 .index-products .list{
+	position: relative;
 	width: 50%;
 	height: 200px;
 	background: #f3f3f3;
+	opacity: 0;
+	transform:scale(0);
+	-webkit-transform:scale(0);
+	transition:0.5s;
+	-webkit-transition:0.5s;
 }
 .index-products img{
 	width: 300px;
@@ -192,11 +227,16 @@
 	font-size:20px;
 	margin-bottom:25px;
 }
+.index-products.show .list{
+	opacity: 1;
+	transform:scale(1);
+	-webkit-transform:scale(1);
+}
 
 
 /* 我们的合作伙伴 */
 .cooperation{
-	width: 1200px;
+	width: 1240px;
 	padding:60px 20px 0;
 	margin:auto;
 }
@@ -220,10 +260,10 @@
 	overflow: hidden;
 }
 .cooperation .slick-prev{
-	left:-30px;
+	left:0;
 	background: url(../images/cooperation-left.png) no-repeat left center;
 }
 .cooperation .slick-next{
-	right:-30px;
+	right:0;
 	background: url(../images/cooperation-right.png) no-repeat left center;
 }

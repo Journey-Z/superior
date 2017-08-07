@@ -16,7 +16,7 @@
 		<a href="/">首页</a>
 		<a href="/about">公司介绍</a>
 		<a href="/strengths">公司强项</a>
-		<a href="#">服务范围</a>
-		<a href="#">服务客户</a>
+		<a href="/service-area">服务范围</a>
+		<a href="/customer">服务客户</a>
 	</nav>
 </header>
