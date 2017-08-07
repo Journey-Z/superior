@@ -12,6 +12,7 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
+README.md
 /public/uploads
 
 # IDE
