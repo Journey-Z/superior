@@ -15,10 +15,17 @@
 }
 .about-content img{
 	width: 800px;
+	opacity: 0;
+	transition:1s;
+	-webkit-transition:1s;
+}
+.about-content.show img{
+	opacity: 1;
 }
 .about-content .detail{
 	position: relative;
 	margin-top:80px;
+	overflow: hidden;
 }
 .about-content .detail div{
 	position: absolute;
@@ -40,14 +47,25 @@
 	margin-bottom:20px;
 }
 .about-content .detail:first-child div{
-	left:0;
+	left:-110%;
 	padding:0 20px 0 0;
+	transition:0.6s;
+	-webkit-transition:0.6s;
 }
 .about-content .detail:last-child div{
-	right: 0;
+	right: -110%;
 	text-align: right;
 	padding:0 0 0 20px;
+	transition:0.6s;
+	-webkit-transition:0.6s;
 }
+.about-content.show .detail:first-child div{
+	left: 0;
+}
+.about-content.show .detail:last-child div{
+	right: 0;
+}
+
 
 /*about mitioc*/
 .about-mitioc{
@@ -55,6 +73,15 @@
 	margin-top:80px;
 	text-align: center;
 	padding:60px 0;
+	position: relative;
+	opacity: 0;
+	top:-100px;
+	transition:0.6s;
+	-webkit-transition:0.6s;
+}
+.about-mitioc.show{
+	opacity: 1;
+	top:0;
 }
 .about-mitioc-logo{
 	margin-bottom:50px;
@@ -167,6 +194,17 @@
 	top:50%;
 	margin: -225px 0 0 -400px ;
 }
+.show-video .video-play-detail span{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	right:-30px;
+	top:-30px;
+}
+.show-video .video-play-detail span img{
+	display: block;
+	width: 100%;
+}
 .show-video .video-play-detail video{
 	width: 100%;
 }
@@ -191,4 +229,13 @@
 	height: 465px;
 	opacity: 0.5;
 	z-index: 99;
+}
+.about-my-video #video-btn img{
+	position: absolute;
+	width: 66px;
+	height: 66px;
+	top:50%;
+	left:50%;
+	margin:-33px 0 0 -33px;
+	z-index: 9;
 }

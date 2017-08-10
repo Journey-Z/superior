@@ -11,3 +11,13 @@
 		</div>
 	</div>
 </footer>
+<a class="return-top" href="javascript:;"><img src="{{asset('assets/images/tops.png')}}"></a>
+<script type="text/javascript">
+	$(function(){
+		$(".return-top").click(function(){
+			$("body").animate({
+				scrollTop:0
+			},200)
+		})
+	})
+</script>

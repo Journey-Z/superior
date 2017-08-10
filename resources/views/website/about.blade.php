@@ -83,27 +83,32 @@
 	</div>
 	<div class="show-video">
 		<div class="video-play-detail">
-			<video autobuffer controls >
+			<span><img src="{{asset('assets/images/close.png')}}"></span>
+			<video autobuffer controls>
 				<source src="{{asset('assets/video/LEATHER.mp4')}}">
 			</video>
 		</div>
 		<div class="video-play-detail">
-			<video autobuffer controls id="au-video">
+			<span><img src="{{asset('assets/images/close.png')}}"></span>
+			<video autobuffer controls>
 				<source src="{{asset('assets/video/PAPER-PRODUCTION-VIDEO-REEL.mp4')}}">
 			</video>
 		</div>
 		<div class="video-play-detail">
-			<video autobuffer controls id="au-video">
+			<span><img src="{{asset('assets/images/close.png')}}"></span>
+			<video autobuffer controls>
 				<source src="{{asset('assets/video/PLASTICS.mp4')}}">
 			</video>
 		</div>
 		<div class="video-play-detail">
-			<video autobuffer controls id="au-video">
+			<span><img src="{{asset('assets/images/close.png')}}"></span>
+			<video autobuffer controls>
 				<source src="{{asset('assets/video/TIN.mp4')}}">
 			</video>
 		</div>
 		<div class="video-play-detail">
-			<video autobuffer controls id="au-video">
+			<span><img src="{{asset('assets/images/close.png')}}"></span>
+			<video autobuffer controls>
 				<source src="{{asset('assets/video/WOODWARE.mp4')}}">
 			</video>
 		</div>
@@ -114,7 +119,7 @@
 	<div class="about-my-video">
 		<div class="title"><h1>我们的视频</h1></div>
 		<div class="video-detail">
-			<div id="video-btn"></div>
+			<div id="video-btn"><img src="{{asset('assets/images/play-icon.png')}}"></div>
 			<video autobuffer controls id="au-video">
 				<source src="{{asset('assets/video/LEATHER.mp4')}}">
 			</video>
@@ -127,15 +132,13 @@
 		var AbVideoBtn = document.getElementById('video-btn');
 		var the = true;
 		AbVideoBtn.onclick = function (){
-			videoPlay()
-		}
-
-		function videoPlay(){
 			var AbVideo = document.getElementById('au-video');
 			if(the){
 				AbVideo.play()
+				$(this).find("img").hide()
 			}else{
 				AbVideo.pause()
+				$(this).find("img").show()
 			}
 			the = !the
 		}
@@ -144,8 +147,24 @@
 		videoListBtn.click(function(){
 			var this_Index = $(this).parent().index();
 			$(".show-video").fadeIn();
-			console.log(this_Index)
 			$('.video-play-detail').eq(this_Index).show();
+		})
+
+
+		window.onload = function(){
+			$(".about-content").addClass("show")
+		}
+
+		$(window).scroll(function(){
+			var winH = $(window).height(),
+	    		scrollH = $(window).scrollTop();
+			var mitiocShow = $(".about-mitioc").offset().top;
+
+			if( mitiocShow < (winH + scrollH) - mitiocShow/4 ){
+				$(".about-mitioc").addClass('show')
+			}else{
+				$(".about-mitioc").removeClass('show')
+			}
 		})
 
 	</script>
