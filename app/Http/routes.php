@@ -35,6 +35,7 @@ Route::group(['prefix' => ''], function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function () {
+
         return view('admin.index');
     });
     Route::get('/charts',['as' => 'charts',function () {

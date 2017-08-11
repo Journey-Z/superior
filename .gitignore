@@ -4,6 +4,7 @@
 Homestead.yaml
 Homestead.json
 .env
+.README.md
 /bootstrap/compiled.php
 /vendor
 composer.phar
