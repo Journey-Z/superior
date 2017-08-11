@@ -11,9 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['prefix' => ''], function () {
+    Route::get('', function () {
+        return view('website.index');
+    });
+    Route::get('/about',['as' => 'about',function () {
+        return view('website.about');
+    }]);
+    Route::get('/strengths',['as' => 'about',function () {
+        return view('website.strengths');
+    }]);
+    Route::get('/service-area',['as' => 'about',function () {
+        return view('website.service-area');
+    }]);
+    Route::get('/customer',['as' => 'about',function () {
+        return view('website.customer');
+    }]);
+    Route::get('/customer-detail',['as' => 'about',function () {
+        return view('website.customer-detail');
+    }]);
 });
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function () {
         return view('admin.index');

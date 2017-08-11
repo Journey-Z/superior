@@ -11,6 +11,12 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
-    mix.sass('app.scss');
-});
+// elixir(function(mix) {
+//     mix.sass('app.scss');
+// });
+
+elixir(function(mix){
+ mix.less([
+  "resources/assets/less/default.less"
+ ],'public/assets/css/default.min.css');
+}

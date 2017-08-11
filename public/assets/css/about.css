@@ -1,0 +1,241 @@
+/*banner*/
+.about-banner{
+	min-width: 1240px;
+}
+.about-banner img{
+	display: block;
+	width: 100%;
+}
+
+/*content-detail*/
+.about-content{
+	width: 1240px;
+	padding:0 20px;
+	margin:auto;
+}
+.about-content img{
+	width: 800px;
+	opacity: 0;
+	transition:1s;
+	-webkit-transition:1s;
+}
+.about-content.show img{
+	opacity: 1;
+}
+.about-content .detail{
+	position: relative;
+	margin-top:80px;
+	overflow: hidden;
+}
+.about-content .detail div{
+	position: absolute;
+	width: 500px;
+	height: 300px;
+	top:50%;
+	margin-top:-150px;
+	background: rgba(255, 255, 255, 0.5)
+}
+.about-content .detail h1{
+	font-size: 30px;
+	font-weight: bold;
+	margin:30px 0;
+}
+.about-content .detail strong{
+	display: block;
+	font-size:16px;
+	font-weight: bold;
+	margin-bottom:20px;
+}
+.about-content .detail:first-child div{
+	left:-110%;
+	padding:0 20px 0 0;
+	transition:0.6s;
+	-webkit-transition:0.6s;
+}
+.about-content .detail:last-child div{
+	right: -110%;
+	text-align: right;
+	padding:0 0 0 20px;
+	transition:0.6s;
+	-webkit-transition:0.6s;
+}
+.about-content.show .detail:first-child div{
+	left: 0;
+}
+.about-content.show .detail:last-child div{
+	right: 0;
+}
+
+
+/*about mitioc*/
+.about-mitioc{
+	background: #f5f5f5;
+	margin-top:80px;
+	text-align: center;
+	padding:60px 0;
+	position: relative;
+	opacity: 0;
+	top:-100px;
+	transition:0.6s;
+	-webkit-transition:0.6s;
+}
+.about-mitioc.show{
+	opacity: 1;
+	top:0;
+}
+.about-mitioc-logo{
+	margin-bottom:50px;
+}
+.about-mitioc ul{
+	display: block;
+	width: 1240px;
+	padding:0 20px;
+	margin:0 auto 20px;
+}
+.about-mitioc li{
+	float:left;
+	width: 220px;
+	margin-left:25px;
+}
+.about-mitioc li:first-child{
+	margin-left:0;
+}
+.about-mitioc li img{
+	display: block;
+	width: 100%;
+}
+.about-mitioc p{
+	font-size:22px;
+	color:#c0a264;
+	padding-top:15px;
+}
+.about-mitioc span{
+	font-size:22px;
+	color:#1053a1;
+}
+.about-mitioc p.en{
+    letter-spacing: 18px;
+}
+.about-mitioc p.ch span{
+	margin-right:25px;
+}
+
+/*视频*/
+.about-factory{
+	background: url(../images/factory-bg.png) no-repeat top center;	
+	height: 826px;
+}
+.about-factory h3{
+	width: 1240px;
+	padding:0 20px;
+	margin:auto;
+}
+.about-factory h3 span{
+	display: block;
+	height: 100px;
+	background: #fff;
+	width: 360px;
+	text-align: center;
+	line-height: 100px;
+	font-size:36px;
+	font-weight: bold;
+}
+.factory-video-list{
+	width: 1240px;
+	padding:250px 20px 0;
+	margin:auto;
+}
+.about-factory .video-detail{
+	width: 232px;
+	float:left;
+	padding:10px;
+	background: #fff;
+	margin-right:10px;
+	position: relative;
+}
+.about-factory .video-detail a{
+	position: absolute;
+	width: 66px;
+	height: 66px;
+	left:50%;
+	top:45px;
+	margin-left:-33px;
+}
+.about-factory .video-detail strong{
+	display: block;
+	font-size:22px;
+	padding:15px 0;
+}
+.about-factory .video-detail p{
+	display: block;
+	padding-bottom:10px;
+	height: 95px;
+}
+.about-factory .video-detail:last-child{
+	float:right;
+	margin:0;
+}
+.show-video{
+	display: none;
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.8);
+	z-index: 999;
+}
+.show-video .video-play-detail{
+	position: absolute;
+	display: none;
+	width: 800px;
+	height: 450px;
+	left:50%;
+	top:50%;
+	margin: -225px 0 0 -400px ;
+}
+.show-video .video-play-detail span{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	right:-30px;
+	top:-30px;
+}
+.show-video .video-play-detail span img{
+	display: block;
+	width: 100%;
+}
+.show-video .video-play-detail video{
+	width: 100%;
+}
+
+/* 我们的视频 */
+.about-my-video{
+	width: 889px;
+	margin:50px auto 0;
+}
+.about-my-video video{
+	width: 100%;
+}
+.about-my-video .video-detail{
+	margin-top:30px;
+	position: relative;
+}
+.about-my-video #video-btn{
+	position: absolute;
+	bottom:40px;
+	left: 0;
+	width: 100%;
+	height: 465px;
+	opacity: 0.5;
+	z-index: 99;
+}
+.about-my-video #video-btn img{
+	position: absolute;
+	width: 66px;
+	height: 66px;
+	top:50%;
+	left:50%;
+	margin:-33px 0 0 -33px;
+	z-index: 9;
+}
