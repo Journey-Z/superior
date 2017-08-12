@@ -171,25 +171,25 @@
     	if(Advertised < (scrollH + winH) - Advertised/3){
     		$('.advertised').addClass('show')
     	}else{
-    		$('.advertised').removeClass('show')
+    		// $('.advertised').removeClass('show')
     	}
 
     	if(Advantage < (scrollH + winH) - Advertised/3){
     		$('.advantage').addClass('show')
     	}else{
-    		$('.advantage').removeClass('show')
+    		// $('.advantage').removeClass('show')
     	}
 
     	if(Course < (scrollH + winH) - Course/3){
     		$('.course').addClass('show')
     	}else{
-    		$('.course').removeClass('show')
+    		// $('.course').removeClass('show')
     	}
 
     	if(Products < (scrollH + winH) - Products/6){
     		$('.index-products').addClass('show')
     	}else{
-    		$('.index-products').removeClass('show')
+    		// $('.index-products').removeClass('show')
     	}
     })
 </script>

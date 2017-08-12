@@ -124,6 +124,17 @@
 .about-factory{
 	background: url(../images/factory-bg.png) no-repeat top center;	
 	height: 826px;
+	position: relative;
+	opacity: 0;
+	transition:0.6s;
+	-webkit-transition:0.6s;
+	transform:scale(0);
+	-webkit-transform:scale(0);
+}
+.about-factory.show{
+	opacity: 1;
+	transform:scale(1);
+	-webkit-transform:scale(1);
 }
 .about-factory h3{
 	width: 1240px;
@@ -213,6 +224,15 @@
 .about-my-video{
 	width: 889px;
 	margin:50px auto 0;
+	position: relative;
+	opacity: 0;
+	bottom:-100px;
+	transition:0.6s;
+	-webkit-transition:0.6s;
+}
+.about-my-video.show{
+	opacity: 1;
+	bottom:0;
 }
 .about-my-video video{
 	width: 100%;

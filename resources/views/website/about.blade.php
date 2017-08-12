@@ -158,13 +158,29 @@
 		$(window).scroll(function(){
 			var winH = $(window).height(),
 	    		scrollH = $(window).scrollTop();
-			var mitiocShow = $(".about-mitioc").offset().top;
 
-			if( mitiocShow < (winH + scrollH) - mitiocShow/4 ){
+			var mitiocTops = $(".about-mitioc").offset().top;
+			if( mitiocTops < (winH + scrollH) - mitiocTops/4 ){
 				$(".about-mitioc").addClass('show')
 			}else{
-				$(".about-mitioc").removeClass('show')
+				// $(".about-mitioc").removeClass('show')
 			}
+
+			var factoryTops = $(".about-factory").offset().top;
+			if( factoryTops < (winH + scrollH)){
+				$(".about-factory").addClass('show')
+			}else{
+				// $(".about-factory").removeClass('show')
+			}
+
+			var videoTops = $(".about-my-video").offset().top;
+			if( videoTops < (winH + scrollH) - 300){
+				$(".about-my-video").addClass('show')
+			}else{
+				// $(".about-my-video").removeClass('show')
+			}
+
+
 		})
 
 	</script>
