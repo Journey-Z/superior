@@ -9,7 +9,15 @@
 namespace App\Models;
 
 
-class Slide
-{
+use Illuminate\Database\Eloquent\Model;
 
+class Slide extends Model
+{
+    protected $table = 'Slides';
+    /**
+     * 可以被批量赋值的属性。
+     *
+     * @var array
+     */
+    protected $fillable = ['name','image','status'];
 }
