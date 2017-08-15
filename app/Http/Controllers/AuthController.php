@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Validator;
-use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -28,7 +30,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = 'admin/';
 
     /**
      * Create a new authentication controller instance.
@@ -68,5 +70,47 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * 显示登录页面
+     */
+    public function getLogin()
+    {
+        return view('admin.login');
+    }
+
+    /**
+     * 用户登录
+     *
+     * @param LoginRequest $loginRequest
+     */
+    public function postLogin(Request $request)
+    {
+        //判断帐号是否激活
+        $parameters = [
+            'email' => $request->get('account'), // May be the username too
+            'password' => $request->get('password'),
+        ];
+        $login = Auth::attempt($parameters,$request->get('remember'));
+        if($login){
+            return Redirect::intended('admin/');
+        }else{
+            return Redirect::back()->withErrors('帐号或者密码不正确,请重试!');
+        }
+    }
+
+    /**
+     * 退出登录
+     *
+     * @return mixed
+     */
+    public function getLogout()
+    {
+        if(Auth::check()){
+            $user = Auth::user();
+            Auth::logout();
+        }
+        return Redirect::intended('admin/');
     }
 }

@@ -32,12 +32,16 @@ Route::group(['prefix' => ''], function () {
         return view('website.customer-detail');
     }]);
 });
+Route::get('/login',['uses'=>'AuthController@getLogin']);
+Route::get('/logout',['uses'=>'AuthController@getLogout']);
+Route::post('/login',['uses'=>'AuthController@postLogin']);
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware' => ['web','auth']], function () {
     Route::get('/', function () {
-
         return view('admin.index');
     });
+
+
     Route::get('/charts',['as' => 'charts',function () {
         return view('admin.charts');
     }]);
