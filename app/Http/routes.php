@@ -33,13 +33,14 @@ Route::group(['prefix' => ''], function () {
     }]);
 });
 Route::get('/login',['uses'=>'AuthController@getLogin']);
-Route::get('/logout',['uses'=>'AuthController@getLogout']);
+Route::get('/logout',['as' => 'user_logout','uses'=>'AuthController@logout']);
 Route::post('/login',['uses'=>'AuthController@postLogin']);
 
 Route::group(['prefix' => 'admin','middleware' => ['web','auth']], function () {
     Route::get('/', function () {
         return view('admin.index');
     });
+    Route::get('/slides',['as' => 'slide_list','uses'=>'SlideController@getIndex']);
 
 
     Route::get('/charts',['as' => 'charts',function () {

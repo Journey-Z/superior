@@ -5,13 +5,21 @@
             <a href="/admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
         <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> 验证码管理 <i class="fa fa-fw fa-caret-down"></i></a>
-            <ul id="demo" class="collapse">
+            <a href="javascript:;" data-toggle="collapse" data-target="#captcha"><i class="fa fa-fw fa-arrows-v"></i> 验证码管理 <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="captcha" class="collapse">
                 <li>
                     <a href="#"><i class="fa fa-fw fa-wrench"></i>生成验证码</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-table"></i>验证码列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#slide"><i class="fa fa-fw fa-arrows-v"></i> Slide管理 <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="slide" class="collapse">
+                <li>
+                    <a href="{{route('slide_list')}}"><i class="fa fa-fw fa-wrench"></i>Slide列表</a>
                 </li>
             </ul>
         </li>

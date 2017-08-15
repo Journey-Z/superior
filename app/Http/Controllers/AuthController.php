@@ -32,6 +32,8 @@ class AuthController extends Controller
      */
     protected $redirectTo = 'admin/';
 
+    protected $redirectAfterLogout = '/login';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -105,12 +107,12 @@ class AuthController extends Controller
      *
      * @return mixed
      */
-    public function getLogout()
+    public function logout()
     {
         if(Auth::check()){
             $user = Auth::user();
             Auth::logout();
         }
-        return Redirect::intended('admin/');
+        return Redirect::intended('/login');
     }
 }
