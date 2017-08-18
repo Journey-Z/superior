@@ -41,6 +41,8 @@ Route::group(['prefix' => 'admin','middleware' => ['web','auth']], function () {
         return view('admin.index');
     });
     Route::get('/slides',['as' => 'slide_list','uses'=>'SlideController@getIndex']);
+    Route::get('/create/slide',['as' => 'create_slide','uses'=>'SlideController@getCreate']);
+    Route::post('/slide/upload',['as' => 'slide_upload','uses'=>'SlideController@upload']);
 
 
     Route::get('/charts',['as' => 'charts',function () {

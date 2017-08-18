@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Slide extends Model
 {
+    const VALID = 1;
+    const INVALID = 0;
     protected $table = 'Slides';
     /**
      * 可以被批量赋值的属性。
@@ -20,4 +22,14 @@ class Slide extends Model
      * @var array
      */
     protected $fillable = ['name','image','status'];
+
+    public static $status = [
+        self::VALID => '有效',
+        self::INVALID => '无效'
+    ];
+
+    public static function displayStatus($status)
+    {
+        return self::$status[$status];
+    }
 }
