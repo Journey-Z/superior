@@ -43,6 +43,7 @@ Route::group(['prefix' => 'admin','middleware' => ['web','auth']], function () {
     Route::get('/slides',['as' => 'slide_list','uses'=>'SlideController@getIndex']);
     Route::get('/create/slide',['as' => 'create_slide','uses'=>'SlideController@getCreate']);
     Route::post('/slide/upload',['as' => 'slide_upload','uses'=>'SlideController@upload']);
+    Route::post('/slide/createOrUpdate',['as' => 'slide.createOrUpdate','uses'=>'SlideController@createOrUpdate']);
 
 
     Route::get('/charts',['as' => 'charts',function () {

@@ -21,29 +21,52 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="post" id="slide_form">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label for="slide_name" class="col-sm-2 control-label">Slide名称</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="slide_name" name="name" placeholder="Slide名称">
+                                <input type="hidden" value="{{$slide_id}}" name="id">
+                                <input type="text" class="form-control" id="slide_name" name="name" placeholder="Slide名称" value="{{$slide ? $slide->name : ''}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-sm-2 control-label"><span class="required">* &nbsp;</span>海报上传: </label>
                             <div class="col-sm-10 release-input">
-                                <input type="hidden" id="slide_image" name="banner" value="">
+                                <input type="hidden" id="slide_image" name="banner" value="{{$slide ? $slide->image : ''}}">
                                 <ul class="addimg-ul">
+                                    @if($slide)
+
+                                        <li class="exist_img">
+                                            <div class="add-img product_icon">
+                                                <img src="{{$slide ? $slide->image : ''}}" alt="">
+                                                <i class="fa fa-trash-o product-delete-property" onclick="delPicture()"></i>
+                                            </div>
+                                        </li>
+                                    @else
                                         <li>
                                             <div class="add-img product_icon">
                                                 <input type="file" class="upload_img add-img-file" name="img_file"><i class="fa fa-image"></i>添加图片
                                             </div>
                                         </li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="status_select" class="col-sm-2 control-label">是否有效</label>
+                            <div class="col-sm-10">
+                                <select id="status_select" class="form-control" name="slide_status">
+                                    <option value="">请选择</option>
+                                    @foreach(\App\Models\Slide::$status as $statusKey => $status)
+                                        <option value='{{$statusKey}}' @if(isset($slide) && $statusKey == $slide->status) selected @endif>{{$status}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">Sign in</button>
+                                <button type="submit" class="btn btn-lg btn-primary" id="submit">保存</button>
                             </div>
                         </div>
                     </form>
@@ -110,5 +133,42 @@
             $('div[class="add-img product_icon"]').html(html);
             $('#slide_image').val('');
         }
+
+        //提交表单新建活动
+        $("#submit").on('click', function () {
+            var data = $("#slide_form").serialize();
+            $.ajax({
+                method: "post",
+                url: "{{route('slide.createOrUpdate')}}",
+                data: data,
+                beforeSend: function () {
+                    // 禁用按钮防止重复提交
+                    $("#submit").html('<i class="fa fa-spin fa-refresh"></i>正在提交...');
+                    $("#submit").attr({ disabled: "disabled" });
+                },
+                success: function (data) {
+                    if (data.status) {
+                        toastr.success('保存成功!');
+                        $("#submit").removeAttr("disabled");
+                        $(location).prop('href', '/admin/create/slide?slide_id='+data.id)
+                    } else {
+                        $("#submit").removeAttr("disabled");
+                        $("#submit").html("确认并保存");
+                        toastr.warning(data.msg, "保存失败");
+                        return false;
+                    }
+                },
+                error: function (data) {
+                    var json=eval("("+data.responseText+")");
+                    $("#submit").removeAttr("disabled");
+                    $("#submit").html("确认并保存");
+                    toastr.warning(json.error, "缺少必要信息，请重试!");
+                },
+                complete: function (data) {
+                    $("#submit").html('<i class="fa fa-check"></i>保存');
+                }
+            });
+            return false;
+        });
     </script>
 @endsection

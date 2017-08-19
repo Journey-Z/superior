@@ -94,11 +94,11 @@
                                                                         <td>
                                                                             {{$slide->id}}
                                                                         </td>
-                                                                        <td><a target="_blank" href="#">{{$slide->name}}</a></td>
+                                                                        <td><a href="{{url('admin/create/slide?slide_id='.$slide->id)}}">{{$slide->name}}</a></td>
                                                                         <td style="padding:15px;">
                                                                             <a class="fancybox" rel="gallery" href="{{$slide->image}}"
                                                                                title="{{$slide->name}}">
-                                                                                <img src="{{$slide->image}}/64x64" alt="" class="product-img"
+                                                                                <img src="{{$slide->image}}" alt="" class="product-img"
                                                                                      style="height:80px;">
                                                                             </a>
                                                                         </td>

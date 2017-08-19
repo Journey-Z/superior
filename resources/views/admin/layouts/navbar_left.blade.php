@@ -60,5 +60,5 @@
 <!-- /.navbar-collapse -->
 <!-- Bootstrap Core JavaScript -->
 @section("scripts")
-<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+{{--<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>--}}
 @endsection

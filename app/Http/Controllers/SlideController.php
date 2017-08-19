@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\SlideRequest;
 use App\Models\Slide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
@@ -31,13 +32,17 @@ class SlideController extends Controller
     public function getCreate(Request $request)
     {
         $id = $request->input('slide_id');
+        $slide = null;
         if($id) {
             $title = 'Slide详情';
+            $slide = Slide::find($id);
         } else {
             $title = '新建Slide';
         }
         $result = [
-            'title' => $title
+            'title' => $title,
+            'slide_id' => $id,
+            'slide' => $slide
         ];
         return view('admin.slides.create',$result);
     }
@@ -51,5 +56,25 @@ class SlideController extends Controller
         }else{
             return Response::json(array("status" => false, "errMsg" => "图片上传失败!"));
         }
+    }
+
+    public function createOrUpdate(SlideRequest $slideRequest)
+    {
+        if($slideRequest['id']){
+            $slide = Slide::find($slideRequest['id']);
+            $slide->name = $slideRequest->input('name');
+            $slide->image = $slideRequest->input('banner');
+            $slide->status = $slideRequest->input('slide_status');
+            $slide->save();
+        }else{
+            $slide = [
+                'name' => $slideRequest->input('name'),
+                'image' => $slideRequest->input('banner'),
+                'status' => $slideRequest->input('slide_status')
+            ];
+            $slide = Slide::firstOrCreate($slide);
+        }
+        $slide_id = $slide->id;
+        return ['status' => true,'id' => $slide_id];
     }
 }

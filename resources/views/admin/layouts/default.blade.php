@@ -64,6 +64,7 @@
 <!-- Add fancyBox -->
 <link rel="stylesheet" href="{{asset('/assets/plugins/fancybox/source/jquery.fancybox.css?v=2.1.5')}}" type="text/css" media="screen" />
 <script src="{{asset('/assets/plugins/fancybox/source/jquery.fancybox.pack.js?v=2.1.5')}}"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 @yield('scripts')
 <script>
     $(function () {
