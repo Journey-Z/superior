@@ -16,10 +16,10 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i><a href="#">Slides管理</a>
+                            <i class="fa fa-dashboard"></i><a href="#">商品管理</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-desktop"></i> Slides列表
+                            <i class="fa fa-desktop"></i> 商品列表
                         </li>
                     </ol>
                 </div>
@@ -32,10 +32,10 @@
                                 <form class="search-form">
                                     <div class="row">
                                         <div class="col-md-2 margin">
-                                            <input type="text" class="form-control" name="id" value="" placeholder="Slide ID">
+                                            <input type="text" class="form-control" name="id" value="" placeholder="商品 ID">
                                         </div>
                                         <div class="col-md-2 margin">
-                                            <input type="text" class="form-control" name="name" value="" placeholder="Slide名称">
+                                            <input type="text" class="form-control" name="name" value="" placeholder="商品名称">
                                         </div>
                                         <div class="col-sm-2 margin">
                                             <div class="input-group">
@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="col-md-2 margin">
                                             <select class="select2 form-control" name="status">
-                                                <option value=''>Slide状态</option>
+                                                <option value=''>商品状态</option>
                                                 @foreach(\App\Models\Slide::$status as $statusKey => $status)
                                                     <option value='{{$statusKey}}'>{{$status}}</option>
                                                 @endforeach
@@ -62,10 +62,10 @@
                                             <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i> 查询 </button>
                                         </div>
                                         <div class="col-md-1 margin">
-                                            <button type="button" class="btn btn-danger btn-block" onclick="javascript:window.location.href='{{URL::route("slide_list")}}'"><i class="fa fa-refresh"></i> 重置 </button>
+                                            <button type="button" class="btn btn-danger btn-block" onclick="javascript:window.location.href='{{URL::route("product_list")}}'"><i class="fa fa-refresh"></i> 重置 </button>
                                         </div>
                                         <div class="col-md-2 margin">
-                                            <a href="{{route('create_slide')}}" class="btn btn-success btn-block"><i class="fa fa-plus"></i> 新建Slide </a>
+                                            <a href="{{route('create_product')}}" class="btn btn-success btn-block"><i class="fa fa-plus"></i> 添加商品 </a>
                                         </div>
                                     </div>
                                 </form>
@@ -80,9 +80,8 @@
                                                             <table class="table table-bordered table-hover">
                                                                 <thead>
                                                                 <tr style="background-color: #f9f9f9;border-bottom:2px solid #DDDDDD;">
-                                                                    <th>Slide ID</th>
+                                                                    <th>商品 ID</th>
                                                                     <th>名称</th>
-                                                                    <th>标题</th>
                                                                     <th>中文描述</th>
                                                                     <th>英文描述</th>
                                                                     <th>图片</th>
@@ -92,34 +91,33 @@
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                @foreach($slides as $slide)
+                                                                @foreach($products as $product)
                                                                     <tr>
                                                                         <td>
-                                                                            {{$slide->id}}
+                                                                            {{$product->id}}
                                                                         </td>
-                                                                        <td><a href="{{url('admin/create/slide?slide_id='.$slide->id)}}">{{$slide->name}}</a></td>
-                                                                        <td>{{$slide->title}}</td>
-                                                                        <td>{!! $slide->cn_description !!}</td>
-                                                                        <td>{!! $slide->eng_description !!}</td>
+                                                                        <td><a href="{{url('admin/create/product?product_id='.$product->id)}}">{{$product->name}}</a></td>
+                                                                        <td>{!! $product->cn_description !!}</td>
+                                                                        <td>{!! $product->eng_description !!}</td>
                                                                         <td style="padding:15px;">
-                                                                            <a class="fancybox" rel="gallery" href="{{$slide->image}}"
-                                                                               title="{{$slide->name}}">
-                                                                                <img src="{{$slide->image}}" alt="" class="product-img"
+                                                                            <a class="fancybox" rel="gallery" href="{{$product->image}}"
+                                                                               title="{{$product->name}}">
+                                                                                <img src="{{$product->image}}" alt="" class="product-img"
                                                                                      style="height:80px;">
                                                                             </a>
                                                                         </td>
                                                                         <td>
-                                                                            {{\App\Models\Slide::displayStatus($slide->status)}}
+                                                                            {{\App\Models\Product::displayStatus($product->status)}}
                                                                         </td>
-                                                                        <td>{{\App\Models\Slide::changeTimeToLocal($slide->created_at)}}</td>
+                                                                        <td>{{\App\Models\Product::changeTimeToLocal($product->created_at)}}</td>
                                                                         {{--<td>--}}
-                                                                            {{--<a target="_blank" href="#" class="btn btn-primary btn-circle">--}}
-                                                                                {{--<i class="fa fa-edit"></i>&nbsp;详情--}}
-                                                                            {{--</a>--}}
-                                                                            {{--<p>--}}
-                                                                                {{--<a target="_blank" href="#" class="btn btn-warning btn-circle" style="margin-top: 5px">--}}
-                                                                                    {{--<i class="fa fa-plus-square-o"></i>&nbsp;&nbsp;选品--}}
-                                                                                {{--</a>--}}
+                                                                        {{--<a target="_blank" href="#" class="btn btn-primary btn-circle">--}}
+                                                                        {{--<i class="fa fa-edit"></i>&nbsp;详情--}}
+                                                                        {{--</a>--}}
+                                                                        {{--<p>--}}
+                                                                        {{--<a target="_blank" href="#" class="btn btn-warning btn-circle" style="margin-top: 5px">--}}
+                                                                        {{--<i class="fa fa-plus-square-o"></i>&nbsp;&nbsp;选品--}}
+                                                                        {{--</a>--}}
                                                                         {{--</td>--}}
                                                                     </tr>
                                                                 @endforeach
@@ -129,7 +127,7 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-sm-12 text-right">
-                                                            {{$slides->appends(Request::all())->links()}}
+                                                            {{$products->appends(Request::all())->links()}}
                                                         </div>
                                                     </div>
                                                 </div>

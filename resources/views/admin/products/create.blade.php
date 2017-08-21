@@ -10,7 +10,7 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-dashboard"></i><a href="#">Slides管理</a>
+                            <i class="fa fa-dashboard"></i><a href="#">商品管理</a>
                         </li>
                         <li class="active">
                             <i class="fa fa-desktop"></i> {{$title}}
@@ -21,43 +21,37 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <form class="form-horizontal" method="post" id="slide_form">
+                    <form class="form-horizontal" method="post" id="product_form">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
-                            <label for="slide_name" class="col-sm-2 control-label">Slide名称</label>
+                            <label for="product_name" class="col-sm-2 control-label">商品名称</label>
                             <div class="col-sm-10">
-                                <input type="hidden" value="{{$slide_id}}" name="id">
-                                <input type="text" class="form-control" id="slide_name" name="name" placeholder="Slide名称" value="{{$slide ? $slide->name : ''}}">
+                                <input type="hidden" value="{{$product_id}}" name="id">
+                                <input type="text" class="form-control" id="product_name" name="name" placeholder="商品名称" value="{{$product ? $product->name : ''}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="slide_title" class="col-sm-2 control-label">Slide标题</label>
+                            <label for="product_cn" class="col-sm-2 control-label">中文描述</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="slide_title" name="title" placeholder="Slide标题" value="{{$slide ? $slide->title : ''}}">
+                                <textarea class="form-control" rows="5" id="product_cn" placeholder="" name="cn_desc" style="margin-left:0px;width: calc(100% - 0px);" >{{$product ? $product->cn_description : ''}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="slide_cn" class="col-sm-2 control-label">中文描述</label>
+                            <label for="product_eng" class="col-sm-2 control-label">英文描述</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" rows="5" id="slide_cn" placeholder="" name="cn_desc" style="margin-left:0px;width: calc(100% - 0px);" >{{$slide ? $slide->cn_description : ''}}</textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="slide_eng" class="col-sm-2 control-label">英文描述</label>
-                            <div class="col-sm-10">
-                                <textarea class="form-control" rows="5" id="slide_eng" placeholder="" name="eng_desc" style="margin-left:0px;width: calc(100% - 0px);" >{{$slide ? $slide->eng_description : ''}}</textarea>
+                                <textarea class="form-control" rows="5" id="product_eng" placeholder="" name="eng_desc" style="margin-left:0px;width: calc(100% - 0px);" >{{$product ? $product->eng_description : ''}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-sm-2 control-label"><span class="required">* &nbsp;</span>海报上传: </label>
                             <div class="col-sm-10 release-input">
-                                <input type="hidden" id="slide_image" name="banner" value="{{$slide ? $slide->image : ''}}">
+                                <input type="hidden" id="product_image" name="banner" value="{{$product ? $product->image : ''}}">
                                 <ul class="addimg-ul">
-                                    @if($slide)
+                                    @if($product)
 
                                         <li class="exist_img">
                                             <div class="add-img product_icon">
-                                                <img src="{{$slide ? $slide->image : ''}}" alt="">
+                                                <img src="{{$product ? $product->image : ''}}" alt="">
                                                 <i class="fa fa-trash-o product-delete-property" onclick="delPicture()"></i>
                                             </div>
                                         </li>
@@ -72,12 +66,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="status_select" class="col-sm-2 control-label">是否有效</label>
+                            <label for="product_status" class="col-sm-2 control-label">是否有效</label>
                             <div class="col-sm-10">
-                                <select id="status_select" class="form-control" name="slide_status">
+                                <select id="product_status" class="form-control" name="product_status">
                                     <option value="">请选择</option>
                                     @foreach(\App\Models\Slide::$status as $statusKey => $status)
-                                        <option value='{{$statusKey}}' @if(isset($slide) && $statusKey == $slide->status) selected @endif>{{$status}}</option>
+                                        <option value='{{$statusKey}}' @if(isset($product) && $statusKey == $product->status) selected @endif>{{$status}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -103,7 +97,7 @@
             //生成的图片div包裹节点
             var addimgHtml = '';
             var img_name = _this.attr("name");
-            var url = '/admin/slide/upload';
+            var url = '/admin/product/upload';
             _this.wrap("<form id="+img_name+" action="+url+" method='post' enctype='multipart/form-data'></form>");
             $("#"+img_name).ajaxSubmit({
                 dataType:  'json',
@@ -125,7 +119,7 @@
                         //生成商品主图
                         addimgHtml += generateProductMainPicture(data.img_url);
                         addimg.append(addimgHtml);
-                        $("#slide_image").val(data.img_url);
+                        $("#product_image").val(data.img_url);
                         addimgHtml = '';
                     } else {
                         toastr.warning(data.errMsg, "图片上传失败");
@@ -149,15 +143,15 @@
         function delPicture(){
             var html = '<input type="file" class="upload_img add-img-file" name="img_file"><i class="fa fa-image"></i>添加图片';
             $('div[class="add-img product_icon"]').html(html);
-            $('#slide_image').val('');
+            $('#product_image').val('');
         }
 
         //提交表单新建活动
         $("#submit").on('click', function () {
-            var data = $("#slide_form").serialize();
+            var data = $("#product_form").serialize();
             $.ajax({
                 method: "post",
-                url: "{{route('slide.createOrUpdate')}}",
+                url: "{{route('product.createOrUpdate')}}",
                 data: data,
                 beforeSend: function () {
                     // 禁用按钮防止重复提交
@@ -168,7 +162,7 @@
                     if (data.status) {
                         toastr.success('保存成功!');
                         $("#submit").removeAttr("disabled");
-                        $(location).prop('href', '/admin/create/slide?slide_id='+data.id)
+                        $(location).prop('href', '/admin/create/product?product_id='+data.id)
                     } else {
                         $("#submit").removeAttr("disabled");
                         $("#submit").html("确认并保存");

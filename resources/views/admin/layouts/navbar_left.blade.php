@@ -16,10 +16,26 @@
             </ul>
         </li>
         <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#slide"><i class="fa fa-fw fa-arrows-v"></i> Slide管理 <i class="fa fa-fw fa-caret-down"></i></a>
+            <a href="javascript:;" data-toggle="collapse" data-target="#slide"><i class="fa fa-fw fa-arrows-v"></i> 首页管理 <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="slide" class="collapse">
                 <li>
                     <a href="{{route('slide_list')}}"><i class="fa fa-fw fa-wrench"></i>Slide列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#product"><i class="fa fa-fw fa-arrows-v"></i> 商品管理 <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="product" class="collapse">
+                <li>
+                    <a href="{{route('product_list')}}"><i class="fa fa-fw fa-wrench"></i>商品列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#category"><i class="fa fa-fw fa-arrows-v"></i> 分类管理 <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="category" class="collapse">
+                <li>
+                    <a href="{{route('categories')}}"><i class="fa fa-fw fa-wrench"></i>分类树</a>
                 </li>
             </ul>
         </li>

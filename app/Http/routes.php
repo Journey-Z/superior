@@ -13,9 +13,7 @@
 
 
 Route::group(['prefix' => ''], function () {
-    Route::get('', function () {
-        return view('website.index');
-    });
+    Route::get('', ['as' => 'home','uses'=>'HomeController@getHomePage']);
     Route::get('/about',['as' => 'about',function () {
         return view('website.about');
     }]);
@@ -40,11 +38,19 @@ Route::group(['prefix' => 'admin','middleware' => ['web','auth']], function () {
     Route::get('/', function () {
         return view('admin.index');
     });
+    /** slide路由 */
     Route::get('/slides',['as' => 'slide_list','uses'=>'SlideController@getIndex']);
     Route::get('/create/slide',['as' => 'create_slide','uses'=>'SlideController@getCreate']);
     Route::post('/slide/upload',['as' => 'slide_upload','uses'=>'SlideController@upload']);
     Route::post('/slide/createOrUpdate',['as' => 'slide.createOrUpdate','uses'=>'SlideController@createOrUpdate']);
 
+    /** 商品路由 */
+    Route::get('/products',['as' => 'product_list','uses'=>'ProductController@getIndex']);
+    Route::get('/create/product',['as' => 'create_product','uses'=>'ProductController@getCreate']);
+    Route::post('/product/upload',['as' => 'product_upload','uses'=>'ProductController@upload']);
+    Route::post('/product/createOrUpdate',['as' => 'product.createOrUpdate','uses'=>'ProductController@createOrUpdate']);
+
+    Route::get('/categories',['as' => 'categories','uses'=>'CategoryController@getCategoryTree']);
 
     Route::get('/charts',['as' => 'charts',function () {
         return view('admin.charts');

@@ -2,23 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: Administrator
- * Date: 2017/8/15
- * Time: 21:06
+ * Date: 2017/8/20
+ * Time: 22:58
  */
 
 namespace App\Models;
 
 
-use App\Traits\TimeTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Slide extends Model
+class Product extends Model
 {
-//    use TimeTrait;
-
     const VALID = 1;
     const INVALID = 0;
-    protected $table = 'slides';
+    protected $table = 'products';
     /**
      * 可以被批量赋值的属性。
      *
@@ -27,8 +24,8 @@ class Slide extends Model
     protected $fillable = ['name','image','status','title','cn_description','eng_description'];
 
     public static $status = [
-        self::VALID => '有效',
-        self::INVALID => '无效'
+        self::VALID => '上线',
+        self::INVALID => '下线'
     ];
 
     public static function displayStatus($status)

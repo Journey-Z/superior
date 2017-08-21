@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Contracts\Validation\Validator;
 
-class SlideRequest extends Request
+class ProductRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,10 @@ class SlideRequest extends Request
     {
         return [
             'name' => 'required',
-            'title' => 'required',
             'cn_desc' => 'required',
             'eng_desc' => 'required',
             'banner' => 'required',
-            'slide_status' => 'required'
+            'product_status' => 'required'
         ];
     }
 
@@ -42,12 +41,11 @@ class SlideRequest extends Request
     public function messages()
     {
         return [
-            'name.required' => 'Slide名称为必填的',
-            'banner.required' => '必须上传Slide的图片',
-            'slide_status.required' => '必须选择Slide的状态',
-            'title.required' => 'Slide标题为必填的',
-            'cn_desc.required' => 'Slide中文描述为必填的',
-            'eng_desc.required' => 'Slide英文描述为必填的',
+            'name.required' => '商品名称为必填的',
+            'banner.required' => '必须上传商品的图片',
+            'product_status.required' => '必须选择商品的状态',
+            'cn_desc.required' => '商品中文描述为必填的',
+            'eng_desc.required' => '商品英文描述为必填的',
         ];
     }
 
