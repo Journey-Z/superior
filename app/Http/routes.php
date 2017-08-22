@@ -51,6 +51,12 @@ Route::group(['prefix' => 'admin','middleware' => ['web','auth']], function () {
     Route::post('/product/createOrUpdate',['as' => 'product.createOrUpdate','uses'=>'ProductController@createOrUpdate']);
 
     Route::get('/categories',['as' => 'categories','uses'=>'CategoryController@getCategoryTree']);
+    Route::get('/create/category',['as' => 'create_category','uses'=>'CategoryController@getCreate']);
+    Route::post('/category/createOrUpdate',['as' => 'category.createOrUpdate','uses'=>'CategoryController@createOrUpdate']);
+    Route::get('/category/choose_products',['as' => 'choose_products','uses'=>'CategoryController@chooseProducts']);
+    Route::get('/category/chosen_products',['as' => 'chosen_products','uses'=>'CategoryController@chosenProducts']);
+    Route::post('/category/add_products',['as' => 'category.add_products','uses'=>'CategoryController@addProducts']);
+    Route::post('/category/delete_products',['as' => 'category.delete_products','uses'=>'CategoryController@deleteProducts']);
 
     Route::get('/charts',['as' => 'charts',function () {
         return view('admin.charts');

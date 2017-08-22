@@ -45,7 +45,19 @@
                         "add_sub": {
                             'label': "添加子分类",
                             'action': function () {
-                                window.open("_blank" + "?parent_id=" + node.id);
+                                window.open("/admin/create/category" + "?parent_id=" + node.id);
+                            }
+                        },
+                        "choose_products": {
+                            'label': "添加商品",
+                            'action': function () {
+                                window.open("{{route('choose_products')}}" + "?category_id=" + node.id );
+                            }
+                        },
+                        "chosen_products": {
+                            'label': "已添加商品",
+                            'action': function () {
+                                window.open("{{route('chosen_products')}}" + "?category_id=" + node.id );
                             }
                         }
                     }
