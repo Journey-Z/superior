@@ -8,7 +8,7 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#captcha"><i class="fa fa-fw fa-arrows-v"></i> 验证码管理 <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="captcha" class="collapse">
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-wrench"></i>生成验证码</a>
+                    <a href="{{route('generate_captcha')}}"><i class="fa fa-fw fa-wrench"></i>生成验证码</a>
                 </li>
                 <li>
                     <a href="{{route('captcha_list')}}"><i class="fa fa-fw fa-table"></i>验证码列表</a>
