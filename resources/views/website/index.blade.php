@@ -30,6 +30,16 @@
 		</div>
 		<img src="{{asset('assets/images/index_banner3.png')}}" />
 	</div>
+	@foreach($slides as $key => $value)
+		<div>
+			<div class="banner-content">
+				<strong>{{$value->title}}</strong>
+				<p>{!! $value->cn_description !!}</p>
+				{{--<span>零售产品生产、材质材料开发及应用、质量保证</span>--}}
+			</div>
+			<img src="{{$value->image}}" />
+		</div>
+	@endforeach
 </div>
 
 <!-- 我们的优势 -->
