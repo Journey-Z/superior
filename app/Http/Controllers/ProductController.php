@@ -84,7 +84,7 @@ class ProductController extends Controller
     public function createOrUpdate(ProductRequest $productRequest)
     {
         if($productRequest['id']){
-            $product = Product::find($slideRequest['id']);
+            $product = Product::find($productRequest['id']);
             $product->name = $productRequest->input('name');
             $product->image = $productRequest->input('banner');
             $product->status = $productRequest->input('product_status');

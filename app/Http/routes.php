@@ -36,7 +36,7 @@ Route::post('/login',['uses'=>'AuthController@postLogin']);
 
 Route::group(['prefix' => 'admin','middleware' => ['web','auth']], function () {
     Route::get('/', function () {
-        return view('admin.index');
+        return view('admin.home');
     });
     /** slide路由 */
     Route::get('/slides',['as' => 'slide_list','uses'=>'SlideController@getIndex']);
@@ -50,6 +50,7 @@ Route::group(['prefix' => 'admin','middleware' => ['web','auth']], function () {
     Route::post('/product/upload',['as' => 'product_upload','uses'=>'ProductController@upload']);
     Route::post('/product/createOrUpdate',['as' => 'product.createOrUpdate','uses'=>'ProductController@createOrUpdate']);
 
+    /** 分类路由 */
     Route::get('/categories',['as' => 'categories','uses'=>'CategoryController@getCategoryTree']);
     Route::get('/create/category',['as' => 'create_category','uses'=>'CategoryController@getCreate']);
     Route::post('/category/createOrUpdate',['as' => 'category.createOrUpdate','uses'=>'CategoryController@createOrUpdate']);
@@ -57,6 +58,11 @@ Route::group(['prefix' => 'admin','middleware' => ['web','auth']], function () {
     Route::get('/category/chosen_products',['as' => 'chosen_products','uses'=>'CategoryController@chosenProducts']);
     Route::post('/category/add_products',['as' => 'category.add_products','uses'=>'CategoryController@addProducts']);
     Route::post('/category/delete_products',['as' => 'category.delete_products','uses'=>'CategoryController@deleteProducts']);
+
+    /** 验证码路由 */
+    Route::get('/captcha',['as' => 'captcha_list','uses'=>'CaptchaController@getIndex']);
+    Route::get('/generate/captcha',['as' => 'generate_captcha','uses'=>'CaptchaController@getGenerate']);
+    Route::post('/captcha/generate',['as' => 'captcha.generate','uses'=>'CaptchaController@generate']);
 
     Route::get('/charts',['as' => 'charts',function () {
         return view('admin.charts');

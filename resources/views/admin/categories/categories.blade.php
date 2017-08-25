@@ -1,7 +1,7 @@
 @extends('admin.layouts.default')
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css"/>
-    <div id="page-wrapper" style="height: 820px">
+    <div id="page-wrapper">
         <div class="container-fluid">
             <div class="page-header">
                 <h1>分类数据</h1>

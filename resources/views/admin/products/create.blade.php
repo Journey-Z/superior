@@ -70,7 +70,7 @@
                             <div class="col-sm-10">
                                 <select id="product_status" class="form-control" name="product_status">
                                     <option value="">请选择</option>
-                                    @foreach(\App\Models\Slide::$status as $statusKey => $status)
+                                    @foreach(\App\Models\Product::$status as $statusKey => $status)
                                         <option value='{{$statusKey}}' @if(isset($product) && $statusKey == $product->status) selected @endif>{{$status}}</option>
                                     @endforeach
                                 </select>
