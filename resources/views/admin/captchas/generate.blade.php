@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group">
                             <label for="daterange" class="col-sm-2 control-label">有效期</label>
-                            <div class="col-sm-10 input-group">
+                            <div class="col-sm-10 input-group" style="padding:0 15px;">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>

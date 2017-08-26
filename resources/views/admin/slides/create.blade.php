@@ -20,37 +20,36 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-6">
                     <form class="form-horizontal" method="post" id="slide_form">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
-                            <label for="slide_name" class="col-sm-2 control-label">Slide名称</label>
+                            <label for="slide_name" class="col-sm-2 control-label" style="width:120px;">Slide名称</label>
                             <div class="col-sm-10">
                                 <input type="hidden" value="{{$slide_id}}" name="id">
                                 <input type="text" class="form-control" id="slide_name" name="name" placeholder="Slide名称" value="{{$slide ? $slide->name : ''}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="slide_title" class="col-sm-2 control-label">Slide标题</label>
+                            <label for="slide_title" class="col-sm-2 control-label" style="width:120px;">Slide标题</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="slide_title" name="title" placeholder="Slide标题" value="{{$slide ? $slide->title : ''}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="slide_cn" class="col-sm-2 control-label">中文描述</label>
+                            <label for="slide_cn" class="col-sm-2 control-label" style="width:120px;">中文描述</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" rows="5" id="slide_cn" placeholder="" name="cn_desc" style="margin-left:0px;width: calc(100% - 0px);" >{{$slide ? $slide->cn_description : ''}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="slide_eng" class="col-sm-2 control-label">英文描述</label>
+                            <label for="slide_eng" class="col-sm-2 control-label" style="width:120px;">英文描述</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" rows="5" id="slide_eng" placeholder="" name="eng_desc" style="margin-left:0px;width: calc(100% - 0px);" >{{$slide ? $slide->eng_description : ''}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label"><span class="required">* &nbsp;</span>海报上传: </label>
-                            <div class="col-sm-10 release-input">
+                            <label for="" class="col-sm-2 control-label" style="width:120px;"><span class="required">* &nbsp;</span>海报上传: </label>
+                            <div class="col-sm-10">
                                 <input type="hidden" id="slide_image" name="banner" value="{{$slide ? $slide->image : ''}}">
                                 <ul class="addimg-ul">
                                     @if($slide)
@@ -72,7 +71,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="status_select" class="col-sm-2 control-label">是否有效</label>
+                            <label for="slide_eng" class="col-sm-2 control-label" style="width:120px;">是否有效</label>
+                            
                             <div class="col-sm-10">
                                 <select id="status_select" class="form-control" name="slide_status">
                                     <option value="">请选择</option>
@@ -88,7 +88,6 @@
                             </div>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
     </div>

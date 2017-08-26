@@ -50,7 +50,7 @@
                                         <div class="col-md-2 margin">
                                             <select class="select2 form-control" name="status">
                                                 <option value=''>商品状态</option>
-                                                @foreach(\App\Models\Pro::$status as $statusKey => $status)
+                                                @foreach(\App\Models\Product::$status as $statusKey => $status)
                                                     <option value='{{$statusKey}}'>{{$status}}</option>
                                                 @endforeach
                                             </select>
@@ -59,10 +59,10 @@
 
                                     <div class="row" style="margin-top: 15px;">
                                         <div class="col-sm-1 margin" >
-                                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i> 查询 </button>
+                                            <button style="width:80px;" type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i> 查询 </button>
                                         </div>
                                         <div class="col-md-1 margin">
-                                            <button type="button" class="btn btn-danger btn-block" onclick="javascript:window.location.href='{{URL::route("product_list")}}'"><i class="fa fa-refresh"></i> 重置 </button>
+                                            <button style="width:80px;" type="button" class="btn btn-danger btn-block" onclick="javascript:window.location.href='{{URL::route("product_list")}}'"><i class="fa fa-refresh"></i> 重置 </button>
                                         </div>
                                         <div class="col-md-2 margin">
                                             <a href="{{route('create_product')}}" class="btn btn-success btn-block"><i class="fa fa-plus"></i> 添加商品 </a>
