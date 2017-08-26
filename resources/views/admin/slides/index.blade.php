@@ -59,10 +59,10 @@
 
                                     <div class="row" style="margin-top: 15px;">
                                         <div class="col-sm-1 margin" >
-                                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i> 查询 </button>
+                                            <button style="width:80px;" type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i> 查询 </button>
                                         </div>
                                         <div class="col-md-1 margin">
-                                            <button type="button" class="btn btn-danger btn-block" onclick="javascript:window.location.href='{{URL::route("slide_list")}}'"><i class="fa fa-refresh"></i> 重置 </button>
+                                            <button style="width:80px;" type="button" class="btn btn-danger btn-block" onclick="javascript:window.location.href='{{URL::route("slide_list")}}'"><i class="fa fa-refresh"></i> 重置 </button>
                                         </div>
                                         <div class="col-md-2 margin">
                                             <a href="{{route('create_slide')}}" class="btn btn-success btn-block"><i class="fa fa-plus"></i> 新建Slide </a>

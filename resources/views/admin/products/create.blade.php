@@ -20,31 +20,30 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-6">
                     <form class="form-horizontal" method="post" id="product_form">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
-                            <label for="product_name" class="col-sm-2 control-label">商品名称</label>
+                            <label for="product_name" class="col-sm-2 control-label" style="width:120px;">商品名称</label>
                             <div class="col-sm-10">
                                 <input type="hidden" value="{{$product_id}}" name="id">
                                 <input type="text" class="form-control" id="product_name" name="name" placeholder="商品名称" value="{{$product ? $product->name : ''}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="product_cn" class="col-sm-2 control-label">中文描述</label>
+                            <label for="product_cn" class="col-sm-2 control-label" style="width:120px;">中文描述</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" rows="5" id="product_cn" placeholder="" name="cn_desc" style="margin-left:0px;width: calc(100% - 0px);" >{{$product ? $product->cn_description : ''}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="product_eng" class="col-sm-2 control-label">英文描述</label>
+                            <label for="product_eng" class="col-sm-2 control-label" style="width:120px;">英文描述</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" rows="5" id="product_eng" placeholder="" name="eng_desc" style="margin-left:0px;width: calc(100% - 0px);" >{{$product ? $product->eng_description : ''}}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-sm-2 control-label"><span class="required">* &nbsp;</span>海报上传: </label>
-                            <div class="col-sm-10 release-input">
+                            <label for="" class="col-sm-2 control-label" style="width:120px;"><span class="required">* &nbsp;</span>海报上传: </label>
+                            <div class="col-sm-10">
                                 <input type="hidden" id="product_image" name="banner" value="{{$product ? $product->image : ''}}">
                                 <ul class="addimg-ul">
                                     @if($product)
@@ -66,7 +65,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="product_status" class="col-sm-2 control-label">是否有效</label>
+                            <label for="product_eng" class="col-sm-2 control-label" style="width:120px;">是否有效</label>
                             <div class="col-sm-10">
                                 <select id="product_status" class="form-control" name="product_status">
                                     <option value="">请选择</option>
@@ -82,7 +81,6 @@
                             </div>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
     </div>
