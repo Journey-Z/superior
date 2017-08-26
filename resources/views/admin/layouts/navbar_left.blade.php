@@ -5,13 +5,13 @@
             <a href="/admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
         <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#captcha"><i class="fa fa-fw fa-arrows-v"></i> 验证码管理 <i class="fa fa-fw fa-caret-down"></i></a>
+            <a href="javascript:;" data-toggle="collapse" data-target="#captcha"><i class="fa fa-fw fa-arrows-v"></i> 授权码管理 <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="captcha" class="collapse">
                 <li>
-                    <a href="{{route('generate_captcha')}}"><i class="fa fa-fw fa-wrench"></i>生成验证码</a>
+                    <a href="{{route('generate_captcha')}}"><i class="fa fa-fw fa-wrench"></i>生成授权码</a>
                 </li>
                 <li>
-                    <a href="{{route('captcha_list')}}"><i class="fa fa-fw fa-table"></i>验证码列表</a>
+                    <a href="{{route('captcha_list')}}"><i class="fa fa-fw fa-table"></i>授权码列表</a>
                 </li>
             </ul>
         </li>
@@ -19,7 +19,7 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#slide"><i class="fa fa-fw fa-arrows-v"></i> 首页管理 <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="slide" class="collapse">
                 <li>
-                    <a href="{{route('slide_list')}}"><i class="fa fa-fw fa-wrench"></i>Slide列表</a>
+                    <a href="{{route('slide_list')}}"><i class="fa fa-fw fa-table"></i>Slide列表</a>
                 </li>
             </ul>
         </li>
@@ -27,7 +27,7 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#product"><i class="fa fa-fw fa-arrows-v"></i> 商品管理 <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="product" class="collapse">
                 <li>
-                    <a href="{{route('product_list')}}"><i class="fa fa-fw fa-wrench"></i>商品列表</a>
+                    <a href="{{route('product_list')}}"><i class="fa fa-fw fa-table"></i>商品列表</a>
                 </li>
             </ul>
         </li>

@@ -19,7 +19,7 @@
                             <i class="fa fa-dashboard"></i><a href="#">Slides管理</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-desktop"></i> Slides列表
+                            <i class="fa fa-table"></i> Slides列表
                         </li>
                     </ol>
                 </div>

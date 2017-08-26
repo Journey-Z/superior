@@ -13,7 +13,7 @@
                             <i class="fa fa-dashboard"></i><a href="#">Slides管理</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-desktop"></i> {{$title}}
+                            <i class="fa fa-edit"></i> {{$title}}
                         </li>
                     </ol>
                 </div>

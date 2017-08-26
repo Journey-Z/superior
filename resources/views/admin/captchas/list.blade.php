@@ -19,7 +19,7 @@
                             <i class="fa fa-dashboard"></i><a href="#">授权码管理</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-desktop"></i> 授权码列表
+                            <i class="fa fa-table"></i> 授权码列表
                         </li>
                     </ol>
                 </div>

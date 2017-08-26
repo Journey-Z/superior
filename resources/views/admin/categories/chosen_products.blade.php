@@ -19,7 +19,7 @@
                             <i class="fa fa-dashboard"></i><a href="#">分类管理</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-desktop"></i> 已添加到该分类的商品
+                            <i class="fa fa-table"></i> 已添加到该分类的商品
                         </li>
                     </ol>
                 </div>

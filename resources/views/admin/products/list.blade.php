@@ -19,7 +19,7 @@
                             <i class="fa fa-dashboard"></i><a href="#">商品管理</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-desktop"></i> 商品列表
+                            <i class="fa fa-table"></i> 商品列表
                         </li>
                     </ol>
                 </div>
