@@ -25,9 +25,9 @@ body {
     width: 100%;
     padding: 0;
     background-color: #fff;
-    height: 100%;
+    height: calc(100% - 51px);
     left:0;
-    position: fixed;
+    overflow: auto;
 }
 
 .huge {
@@ -39,16 +39,15 @@ body {
     #wrapper {
         padding-left: 225px;
     }
-
     #page-wrapper {
+        position: fixed;
         padding: 10px 10px 10px 235px;
         top:51px;
     }
 }
 @media(max-width:767px){
     #page-wrapper {
-        top:101px;
-        left:0;
+        min-height: 600px;
     }
 }
 
