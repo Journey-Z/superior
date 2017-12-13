@@ -13,7 +13,10 @@ use App\Http\Requests\ProductRequest;
 use App\Traits\TimeTrait;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\URL;
 
 class ProductController extends Controller
 {
@@ -103,5 +106,44 @@ class ProductController extends Controller
         }
         $product_id = $product->id;
         return ['status' => true,'id' => $product_id];
+    }
+
+    public function getBatch(Request $request)
+    {
+
+    }
+
+    public function batchUpload(Request $request)
+    {
+        $file = $request->file("file");
+        $url = $this->uploadFile($file, $directory = "product_details", true, false);
+        $size = $file->getClientSize();
+        $filename = $file->getClientOriginalName();
+        $original_filename = $filename = trim(pathinfo($filename, PATHINFO_FILENAME));
+        return Response::json(
+            array(
+                "files" => array(
+                    array(
+                        "name" => $original_filename,
+                        "size" => $size,
+                        "url" => $url,
+                        "thumbnailUrl" => $url,
+                        "deleteUrl" => URL::to("/upload/?filename=" . "xx"),
+                        "deleteType" => "DELETE"
+                    )
+                )
+            )
+        );
+
+//        if ($url) {
+//            return Response::json(array("status" => true, "img_url"=>$url));
+//        }else{
+//            return Response::json(array("status" => false, "errMsg" => "图片上传失败!"));
+//        }
+    }
+
+    public function test()
+    {
+        return view('admin.products.test');
     }
 }

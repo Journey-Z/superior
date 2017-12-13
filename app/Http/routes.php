@@ -49,6 +49,9 @@ Route::group(['prefix' => 'admin','middleware' => ['web','auth']], function () {
     Route::get('/create/product',['as' => 'create_product','uses'=>'ProductController@getCreate']);
     Route::post('/product/upload',['as' => 'product_upload','uses'=>'ProductController@upload']);
     Route::post('/product/createOrUpdate',['as' => 'product.createOrUpdate','uses'=>'ProductController@createOrUpdate']);
+    Route::get('/test',['as' => 'test','uses'=>'ProductController@test']);
+    Route::get('/product/batch_upload',['as' => 'batch_upload','uses'=>'ProductController@getBatch']);
+    Route::post('/product/batch_upload',['as' => 'batch_upload','uses'=>'ProductController@batchUpload']);
 
     /** 分类路由 */
     Route::get('/categories',['as' => 'categories','uses'=>'CategoryController@getCategoryTree']);
